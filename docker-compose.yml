@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+  latest:
+    image: ${REG_HOST}/node-lts:latest
+    build:
+      context: .
+      target: latest
+  imagemin:
+    image: ${REG_HOST}/node-lts:imagemin
+    build:
+      context: .
+      target: imagemin
+  python3:
+    image: ${REG_HOST}/node-lts:python3
+    build:
+      context: .
+      target: python3
+  playwright:
+    image: ${REG_HOST}/node-lts:playwright
+    build:
+      context: .
+      target: playwright
+  fonts:
+    image: ${REG_HOST}/node-lts:fonts
+    build:
+      context: .
+      target: fonts
