@@ -14,8 +14,6 @@ Docker image for node.js develop.
 
 Some `npm` dependencies like `imagemin-*` need some packages, Use this image or `airkro/node-lts` can save the day.
 
-`git / zip / ssh` was installed by default.
-
 ## Usage
 
 ```sh
@@ -24,13 +22,24 @@ docker pull airkro/node-lts
 
 ## Compare Size
 
-|   Size | Image           | Tag        | Features                                                            |
-| -----: | --------------- | ---------- | ------------------------------------------------------------------- |
-|  39 MB | node            | lts-alpine |                                                                     |
-|  58 MB | node            | lts-slim   |                                                                     |
-| 346 MB | node            | lts        |                                                                     |
-|  50 MB | airkro/node-lts | latest     |                                                                     |
-|  84 MB | airkro/node-lts | imagemin   | imagemin                                                            |
-|  97 MB | airkro/node-lts | python3    | imagemin / python3                                                  |
-| 724 MB | airkro/node-lts | playwright | imagemin / python3 / playwright                                     |
-| 800 MB | airkro/node-lts | fonts      | imagemin / python3 / playwright <br/> fonts-roboto / fonts-noto-cjk |
+### Size of airkro/node-lts:tag
+
+|                      Size | Tag        | Features                                                                          |
+| ------------------------: | ---------- | :-------------------------------------------------------------------------------- |
+|         ![latest][latest] | latest     | git / zip / ssh                                                                   |
+|     ![imagemin][imagemin] | imagemin   | git / zip / ssh / imagemin                                                        |
+|       ![python3][python3] | python3    | git / zip / ssh / imagemin / python3                                              |
+| ![playwright][playwright] | playwright | git / zip / ssh / imagemin / python3 / playwright                                 |
+|           ![fonts][fonts] | fonts      | git / zip / ssh / imagemin / python3 / playwright / fonts-roboto / fonts-noto-cjk |
+
+[latest]: https://flat.badgen.net/docker/size/airkro/node-lts/latest?label=
+[imagemin]: https://flat.badgen.net/docker/size/airkro/node-lts/imagemin?label=
+[python3]: https://flat.badgen.net/docker/size/airkro/node-lts/python3?label=
+[playwright]: https://flat.badgen.net/docker/size/airkro/node-lts/playwright?label=
+[fonts]: https://flat.badgen.net/docker/size/airkro/node-lts/fonts?label=
+
+<style>
+table img {
+  vertical-align: middle;
+}
+</style>
