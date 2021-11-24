@@ -10,10 +10,6 @@ Docker image for node.js develop.
 [github-badge]: https://img.shields.io/github/license/airkro/docker.svg?logo=github&style=flat-square&color=blue
 [github-link]: https://github.com/airkro/docker
 
-## About
-
-Some `npm` dependencies like `imagemin-*` need some packages, Use this image or `airkro/node-lts` can save the day.
-
 ## Usage
 
 ```sh
@@ -22,10 +18,22 @@ docker pull airkro/node-lts
 
 ## Compare Size
 
+### Size of node:tag
+
+|              Size | Tag        |
+| ----------------: | ---------- |
+| ![alpine][alpine] | lts-alpine |
+|     ![slim][slim] | lts-slim   |
+|       ![lts][lts] | lts        |
+
+[alpine]: https://img.shields.io/docker/image-size/_/node/lts-alpine?label=&style=flat-square
+[slim]: https://img.shields.io/docker/image-size/_/node/lts-slim?label=&style=flat-square
+[lts]: https://img.shields.io/docker/image-size/_/node/lts?label=&style=flat-square
+
 ### Size of airkro/node-lts:tag
 
 |                      Size | Tag        | Features                                                                          |
-| ------------------------: | ---------- | :-------------------------------------------------------------------------------- |
+| ------------------------: | :--------- | :-------------------------------------------------------------------------------- |
 |         ![latest][latest] | latest     | git / zip / ssh                                                                   |
 |     ![imagemin][imagemin] | imagemin   | git / zip / ssh / imagemin                                                        |
 |       ![python3][python3] | python3    | git / zip / ssh / imagemin / python3                                              |
@@ -37,9 +45,3 @@ docker pull airkro/node-lts
 [python3]: https://flat.badgen.net/docker/size/airkro/node-lts/python3?label=
 [playwright]: https://flat.badgen.net/docker/size/airkro/node-lts/playwright?label=
 [fonts]: https://flat.badgen.net/docker/size/airkro/node-lts/fonts?label=
-
-<style>
-table img {
-  vertical-align: middle;
-}
-</style>
