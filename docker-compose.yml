@@ -20,8 +20,8 @@ services:
     build:
       context: .
       target: playwright
-  fonts:
-    image: ${REG_HOST}/node-lts:fonts
+  browser:
+    image: ${REG_HOST}/node-lts:browser
     build:
       context: .
-      target: fonts
+      target: browser
