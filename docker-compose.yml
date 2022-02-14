@@ -5,6 +5,11 @@ services:
     build:
       context: .
       target: latest
+  bring-it:
+    image: ${REG_HOST}/node-lts:bring-it
+    build:
+      context: .
+      target: bring-it
   imagemin:
     image: ${REG_HOST}/node-lts:imagemin
     build:
