@@ -32,13 +32,13 @@ docker pull airkro/node-lts
 
 ### Size of airkro/node-lts:tag
 
-|                      Size | Tag        | Features                                                               |
-| ------------------------: | :--------- | :--------------------------------------------------------------------- |
-|         ![latest][latest] | latest     | git / zip / ssh                                                        |
-|     ![imagemin][imagemin] | imagemin   | git / zip / ssh / imagemin                                             |
-|       ![python3][python3] | python3    | git / zip / ssh / python3                                              |
-| ![playwright][playwright] | playwright | git / zip / ssh / python3 / playwright                                 |
-|       ![browser][browser] | browser    | git / zip / ssh / python3 / playwright / fonts-roboto / fonts-noto-cjk |
+|                      Size | Tag        | Features                                                     |
+| ------------------------: | :--------- | :----------------------------------------------------------- |
+|         ![latest][latest] | latest     | git / zip / ssh                                              |
+|     ![imagemin][imagemin] | imagemin   | git / zip / ssh / imagemin                                   |
+|       ![python3][python3] | python3    | git / zip / ssh / python3                                    |
+| ![playwright][playwright] | playwright | git / zip / ssh / playwright                                 |
+|       ![browser][browser] | browser    | git / zip / ssh / playwright / fonts-roboto / fonts-noto-cjk |
 
 [latest]: https://flat.badgen.net/docker/size/airkro/node-lts/latest?label=
 [imagemin]: https://flat.badgen.net/docker/size/airkro/node-lts/imagemin?label=
