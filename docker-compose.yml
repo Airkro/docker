@@ -25,6 +25,11 @@ services:
     build:
       context: .
       target: playwright
+  deploy:
+    image: ${REG_HOST}/node-lts:deploy
+    build:
+      context: .
+      target: deploy
   browser:
     image: ${REG_HOST}/node-lts:browser
     build:
