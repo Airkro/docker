@@ -1,0 +1,37 @@
+name: Push CI
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - conf/ci.dockerfile
+      - .github/workflows/ci.push.yml
+  workflow_dispatch:
+
+jobs:
+  PushToDockerHub:
+    runs-on: ubuntu-latest
+    env:
+      REG_HOST: airkro
+      DOCKER_BUILDKIT: 1
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: airkro
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v4
+        with:
+          file: conf/ci.dockerfile
+          target: qci_worker
+          tags: ${{ env.REG_HOST }}/ci:qci_worker
+          push: true

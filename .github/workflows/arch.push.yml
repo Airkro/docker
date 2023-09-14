@@ -1,0 +1,95 @@
+name: Push Arch
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - conf/arch.dockerfile
+      - .github/workflows/arch.push.yml
+  workflow_dispatch:
+
+jobs:
+  PushToDockerHub:
+    runs-on: ubuntu-latest
+    env:
+      REG_HOST: airkro
+      platforms: linux/amd64,linux/arm64/v8
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: airkro
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+      - name: Build and push arch 1
+        uses: docker/build-push-action@v4
+        with:
+          file: conf/arch.dockerfile
+          target: latest
+          tags: ${{ env.REG_HOST }}/node-lts:latest
+          platforms: ${{ env.platforms }}
+          push: true
+
+      - name: Build and push arch 2
+        uses: docker/build-push-action@v4
+        with:
+          file: conf/arch.dockerfile
+          target: ssh
+          tags: ${{ env.REG_HOST }}/node-lts:ssh
+          platforms: ${{ env.platforms }}
+          push: true
+
+      - name: Build and push arch 3
+        uses: docker/build-push-action@v4
+        with:
+          file: conf/arch.dockerfile
+          target: python3
+          tags: ${{ env.REG_HOST }}/node-lts:python3
+          platforms: ${{ env.platforms }}
+          push: true
+
+      - name: Build and push arch 4
+        uses: docker/build-push-action@v4
+        with:
+          file: conf/arch.dockerfile
+          target: sentry
+          tags: ${{ env.REG_HOST }}/node-lts:sentry
+          platforms: ${{ env.platforms }}
+          push: true
+
+      - name: Build and push arch 5
+        uses: docker/build-push-action@v4
+        with:
+          file: conf/arch.dockerfile
+          target: mp-alipay-ci
+          tags: ${{ env.REG_HOST }}/node-lts:mp-alipay-ci
+          platforms: linux/amd64
+          push: true
+
+      - name: Build and push arch 6
+        uses: docker/build-push-action@v4
+        with:
+          file: conf/arch.dockerfile
+          target: mp-wechat-ci
+          tags: ${{ env.REG_HOST }}/node-lts:mp-wechat-ci
+          platforms: linux/amd64
+          push: true
+
+      - name: Build and push arch 7
+        uses: docker/build-push-action@v4
+        with:
+          file: conf/arch.dockerfile
+          target: mp-ci
+          tags: ${{ env.REG_HOST }}/node-lts:mp-ci
+          platforms: linux/amd64
+          push: true
