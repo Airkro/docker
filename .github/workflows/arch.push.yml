@@ -62,12 +62,21 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           file: conf/arch.dockerfile
+          target: cocoapods
+          tags: ${{ env.REG_HOST }}/node-lts:cocoapods
+          platforms: ${{ env.platforms }}
+          push: true
+
+      - name: Build and push arch 5
+        uses: docker/build-push-action@v4
+        with:
+          file: conf/arch.dockerfile
           target: sentry
           tags: ${{ env.REG_HOST }}/node-lts:sentry
           platforms: ${{ env.platforms }}
           push: true
 
-      - name: Build and push arch 5
+      - name: Build and push arch 6
         uses: docker/build-push-action@v4
         with:
           file: conf/arch.dockerfile
@@ -76,7 +85,7 @@ jobs:
           platforms: linux/amd64
           push: true
 
-      - name: Build and push arch 6
+      - name: Build and push arch 7
         uses: docker/build-push-action@v4
         with:
           file: conf/arch.dockerfile
@@ -85,7 +94,7 @@ jobs:
           platforms: linux/amd64
           push: true
 
-      - name: Build and push arch 7
+      - name: Build and push arch 8
         uses: docker/build-push-action@v4
         with:
           file: conf/arch.dockerfile
