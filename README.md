@@ -32,21 +32,23 @@ docker pull airkro/node-lts
 
 ### Size of airkro/node-lts:tag
 
-|                          Size | Tag          | Features                                       |
-| ----------------------------: | :----------- | :--------------------------------------------- |
-|             ![latest][latest] | latest       | git / zip / docker-cli / docker-compose-cli    |
-|                   ![ssh][ssh] | ssh          | tag:latest / ssh                               |
-|             ![sentry][sentry] | sentry       | tag:latest / npm:@sentry/cli                   |
-|           ![python3][python3] | python3      | tag:latest / python3                           |
-| ![mp-wechat-ci][mp-wechat-ci] | mp-wechat-ci | tag:latest / npm:miniprogram-ci                |
-| ![mp-alipay-ci][mp-alipay-ci] | mp-alipay-ci | tag:python3 / npm:minidev                      |
-|               ![mp-ci][mp-ci] | mp-ci        | tag:python3 / npm:miniprogram-ci / npm:minidev |
-|           ![browser][browser] | browser      | git / zip / ssh / playwright / Noto Sans ...   |
+|                          Size | Tag          | Features                                                |
+| ----------------------------: | :----------- | :------------------------------------------------------ |
+|             ![latest][latest] | latest       | git / zip / docker-cli / corepack                       |
+|                   ![ssh][ssh] | ssh          | tag:latest / ssh                                        |
+|             ![sentry][sentry] | sentry       | tag:latest / npm:@sentry/cli                            |
+|           ![python3][python3] | python3      | tag:latest / python3 / pip                              |
+|       ![cocoapods][cocoapods] | cocoapods    | tag:latest / ruby / cocoapods                           |
+| ![mp-wechat-ci][mp-wechat-ci] | mp-wechat-ci | tag:latest / npm:miniprogram-ci                         |
+| ![mp-alipay-ci][mp-alipay-ci] | mp-alipay-ci | tag:python3 / npm:minidev                               |
+|               ![mp-ci][mp-ci] | mp-ci        | tag:python3 / npm:miniprogram-ci / npm:minidev          |
+|           ![browser][browser] | browser      | git / zip / ssh / corepack / playwright / Noto Sans ... |
 
 [latest]: https://flat.badgen.net/docker/size/airkro/node-lts/latest?label=
 [ssh]: https://flat.badgen.net/docker/size/airkro/node-lts/ssh?label=
 [sentry]: https://flat.badgen.net/docker/size/airkro/node-lts/sentry?label=
 [python3]: https://flat.badgen.net/docker/size/airkro/node-lts/python3?label=
+[cocoapods]: https://flat.badgen.net/docker/size/airkro/node-lts/cocoapods?label=
 [browser]: https://flat.badgen.net/docker/size/airkro/node-lts/browser?label=
 [mp-wechat-ci]: https://flat.badgen.net/docker/size/airkro/node-lts/mp-wechat-ci?label=
 [mp-alipay-ci]: https://flat.badgen.net/docker/size/airkro/node-lts/mp-alipay-ci?label=
