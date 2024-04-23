@@ -1,12 +1,13 @@
 FROM node:lts-alpine as latest
 RUN apk --no-cache --update add git zip docker-cli
+
+ENV PNPM_HOME=/usr/local/bin
+
 RUN npm i -g npm@10 && npm i -g @antfu/ni && npm i -g corepack \ 
   && rm -rf /root/.npm/_cacache && npm cache clean --force \
-  && corepack enable npm  && corepack prepare npm@10.5.2 --activate \
+  && corepack enable npm  && corepack prepare npm@latest --activate \
   && corepack enable yarn && corepack prepare yarn@1.22.22 --activate \
-  && corepack enable pnpm && corepack prepare pnpm@9.0.5 --activate \
-  && SHELL=bash pnpm setup \ 
-  && source ~/.bashrc
+  && corepack enable pnpm && corepack prepare pnpm@latest --activate
 
 FROM latest as ssh
 RUN apk --no-cache --update add openssh
