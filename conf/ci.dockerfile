@@ -17,7 +17,7 @@ RUN mkdir -p /root/codingci/tools
 WORKDIR /root/codingci/tools
 
 RUN <<EOL
-curl -fL -o jenkins.war https://public-files.coding.net/public-files/coding-ci/jenkins.war?version=2.293-cci-v2.4
+curl -fL -o jenkins.war https://public-files.coding.net/public-files/coding-ci/jenkins.war?version=2.293-cci-v2.6
 chmod +x jenkins.war
 curl -fL -o jenkinsHome.zip https://coding-public-generic.pkg.coding.net/cci/release/jenkinsHome.zip?version=latest
 unzip -o jenkinsHome.zip

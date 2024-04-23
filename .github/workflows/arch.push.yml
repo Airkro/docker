@@ -17,22 +17,22 @@ jobs:
       platforms: linux/amd64,linux/arm64/v8
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v2
+        uses: docker/setup-qemu-action@v3
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
+        uses: docker/setup-buildx-action@v3
 
       - name: Login to Docker Hub
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
           username: airkro
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
       - name: Build and push arch 1
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v5
         with:
           file: conf/arch.dockerfile
           target: latest
@@ -41,7 +41,7 @@ jobs:
           push: true
 
       - name: Build and push arch 2
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v5
         with:
           file: conf/arch.dockerfile
           target: ssh
@@ -50,7 +50,7 @@ jobs:
           push: true
 
       - name: Build and push arch 3
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v5
         with:
           file: conf/arch.dockerfile
           target: python3
@@ -59,7 +59,7 @@ jobs:
           push: true
 
       - name: Build and push arch 4
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v5
         with:
           file: conf/arch.dockerfile
           target: cocoapods
@@ -68,7 +68,7 @@ jobs:
           push: true
 
       - name: Build and push arch 5
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v5
         with:
           file: conf/arch.dockerfile
           target: sentry
@@ -77,7 +77,7 @@ jobs:
           push: true
 
       - name: Build and push arch 6
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v5
         with:
           file: conf/arch.dockerfile
           target: mp-alipay-ci
@@ -86,7 +86,7 @@ jobs:
           push: true
 
       - name: Build and push arch 7
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v5
         with:
           file: conf/arch.dockerfile
           target: mp-wechat-ci
@@ -95,7 +95,7 @@ jobs:
           push: true
 
       - name: Build and push arch 8
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v5
         with:
           file: conf/arch.dockerfile
           target: mp-ci

@@ -20,9 +20,12 @@ corepack enable yarn
 corepack enable npm
 corepack prepare npm@10.5.2 --activate
 corepack prepare yarn@1.22.22 --activate
-corepack prepare pnpm@9.0.2 --activate
-npm cache clean --force
+corepack prepare pnpm@9.0.5 --activate
+SHELL=bash pnpm setup
+source ~/.bashrc
+
 npm i -g @playwright/test
+npm cache clean --force
 pnpm i -g @playwright/test
 
 cat <<EOT > noto-sans.txt

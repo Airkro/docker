@@ -4,7 +4,9 @@ RUN npm i -g npm@10 && npm i -g @antfu/ni && npm i -g corepack \
   && rm -rf /root/.npm/_cacache && npm cache clean --force \
   && corepack enable npm  && corepack prepare npm@10.5.2 --activate \
   && corepack enable yarn && corepack prepare yarn@1.22.22 --activate \
-  && corepack enable pnpm && corepack prepare pnpm@9.0.2 --activate
+  && corepack enable pnpm && corepack prepare pnpm@9.0.5 --activate \
+  && SHELL=bash pnpm setup \ 
+  && source ~/.bashrc
 
 FROM latest as ssh
 RUN apk --no-cache --update add openssh
