@@ -1,5 +1,6 @@
 FROM node:lts-alpine as latest
-RUN apk --no-cache --update add git zip docker-cli
+RUN apk --no-cache --update add git zip
+RUN apk --no-cache --update add docker-cli docker-cli-compose
 
 ENV PNPM_HOME=/usr/local/bin
 
@@ -13,7 +14,7 @@ FROM latest as ssh
 RUN apk --no-cache --update add openssh
 
 FROM latest as sentry
-RUN npm i -g @sentry/cli --unsafe-perm && rm -rf /root/.npm/_cacache && npm cache clean --force
+RUN pnpm i -g @sentry/cli
 
 FROM latest as python3
 RUN apk --no-cache --update add python3 py3-pip
@@ -26,12 +27,8 @@ RUN apk add --no-cache --update ruby ruby-dev libffi-dev g++ make \
 RUN pod setup --allow-root
 
 FROM latest as mp-wechat-ci
-RUN npm i -g miniprogram-ci && rm -rf /root/.npm/_cacache && npm cache clean --force
+RUN pnpm i -g miniprogram-ci
 
 FROM python3 as mp-alipay-ci
 RUN apk --no-cache --update add make
-RUN npm i -g minidev && rm -rf /root/.npm/_cacache && npm cache clean --force
-
-FROM python3 as mp-ci
-RUN apk --no-cache --update add make
-RUN npm i -g minidev miniprogram-ci && rm -rf /root/.npm/_cacache && npm cache clean --force
+RUN pnpm i -g minidev

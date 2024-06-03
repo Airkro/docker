@@ -1,6 +1,9 @@
 # syntax=docker/dockerfile:1.5
 
 FROM mcr.microsoft.com/playwright as browser
+
+ENV PNPM_HOME=/usr/local/bin
+
 RUN <<EOF
 
 apt-get update
@@ -18,11 +21,9 @@ npm cache clean --force
 corepack enable pnpm
 corepack enable yarn
 corepack enable npm
-corepack prepare npm@10.5.2 --activate
+corepack prepare npm@latest --activate
 corepack prepare yarn@1.22.22 --activate
-corepack prepare pnpm@9.0.5 --activate
-SHELL=bash pnpm setup
-source ~/.bashrc
+corepack prepare pnpm@latest --activate
 
 npm i -g @playwright/test
 npm cache clean --force

@@ -93,12 +93,3 @@ jobs:
           tags: ${{ env.REG_HOST }}/node-lts:mp-wechat-ci
           platforms: linux/amd64
           push: true
-
-      - name: Build and push arch 8
-        uses: docker/build-push-action@v5
-        with:
-          file: conf/arch.dockerfile
-          target: mp-ci
-          tags: ${{ env.REG_HOST }}/node-lts:mp-ci
-          platforms: linux/amd64
-          push: true
