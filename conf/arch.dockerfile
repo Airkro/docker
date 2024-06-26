@@ -2,10 +2,13 @@ FROM node:lts-alpine AS latest
 RUN apk --no-cache --update add git zip curl
 RUN apk --no-cache --update add docker-cli docker-cli-compose
 
+RUN mkdir -p /home/.share /home/.state /home/.share/pnpm /tmp/.cache /mnt
+
 ENV XDG_DATA_HOME=/home/.share
 ENV XDG_STATE_HOME=/home/.state
 ENV XDG_CACHE_HOME=/tmp/.cache
 ENV PNPM_HOME=/home/.share/pnpm
+ENV PATH="$PNPM_HOME:$PATH"
 
 RUN npm i -g npm@10 && npm i -g @antfu/ni && npm i -g corepack \ 
   && rm -rf /root/.npm/_cacache && npm cache clean --force \
