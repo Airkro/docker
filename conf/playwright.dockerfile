@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1.5
 
-FROM mcr.microsoft.com/playwright as browser
+FROM mcr.microsoft.com/playwright AS browser
 
 ENV PNPM_HOME=/usr/local/bin
 
@@ -12,6 +12,10 @@ apt-get autoclean
 apt-get clean
 apt-get autoremove
 rm -rf /var/lib/apt/lists/*
+
+EOF
+
+RUN <<EOF
 
 npm i -g npm@10
 npm i -g @antfu/ni
@@ -25,9 +29,17 @@ corepack prepare npm@latest --activate
 corepack prepare yarn@1.22.22 --activate
 corepack prepare pnpm@latest --activate
 
+EOF
+
+RUN <<EOF
+
 npm i -g @playwright/test
 npm cache clean --force
 pnpm i -g @playwright/test
+
+EOF
+
+RUN <<EOF
 
 cat <<EOT > noto-sans.txt
 https://github.com/notofonts/noto-cjk/raw/main/Sans/Variable/OTF/Mono/NotoSansMonoCJKsc-VF.otf

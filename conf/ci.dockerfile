@@ -1,11 +1,11 @@
 # syntax=docker/dockerfile:1.5
 
-FROM openjdk:11 as qci_worker
+FROM openjdk:11 AS qci_worker
 
 RUN <<EOL
 apt-get update
 curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
-apt-get install --no-install-recommends --fix-missing -y nodejs wget zip git python3.9 python3-pip
+apt-get install --no-install-recommends --fix-missing -y nodejs zip git python3.9 python3-pip
 apt-get autoclean
 apt-get clean
 apt-get autoremove

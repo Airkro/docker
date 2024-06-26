@@ -5,7 +5,7 @@
 Dockerfile:
 
 ```dockerfile
-FROM airkro/ci:qci_worker as codingci
+FROM airkro/ci:qci_worker AS codingci
 
 ARG CODING_TOKEN
 ARG CODING_TEAM
