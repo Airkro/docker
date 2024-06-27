@@ -1,20 +1,38 @@
-FROM debian:buster
-RUN apt update
-RUN apt install -y rsyslog nano curl
-WORKDIR /home/mongobi
-RUN curl -o mbi.tgz https://info-mongodb-com.s3.amazonaws.com/mongodb-bi/v2/mongodb-bi-linux-x86_64-debian92-v2.14.14.tgz
-RUN tar -xvzf mbi.tgz && rm mbi.tgz && mv mongodb-bi-linux-x86_64-debian92-v2.14.14 mbi
-WORKDIR /home/mongobi/mbi
-RUN mkdir /logs
-RUN install -m755 bin/mongo* /usr/local/bin/
+# syntax=docker/dockerfile:1.5
 
-ENV MONGODB_HOST=mongodb
-ENV MONGODB_PORT=27017
-ENV MONGODB_USERNAME=''
-ENV MONGODB_PASSWORD=''
+FROM debian:stretch
+
+RUN cat <<"END" > /etc/apt/sources.list
+deb http://archive.debian.org/debian/ stretch main contrib non-free
+deb http://archive.debian.org/debian/ stretch-backports main contrib non-free
+deb http://archive.debian.org/debian-security/ stretch/updates main contrib non-free
+END
+
+RUN <<EOF
+apt-get update
+apt-get install --no-install-recommends --fix-missing -y curl ca-certificates
+apt-get autoclean
+apt-get clean
+apt-get autoremove
+rm -rf /var/lib/apt/lists/*
+EOF
+
+# rsyslog nano
+
+# RUN mkdir /logs
+
+WORKDIR /mongobi
+
+ENV DIST_VER=mongodb-bi-linux-x86_64-debian92-v2.14.14
+ENV DIST_URL=https://info-mongodb-com.s3.amazonaws.com/mongodb-bi/v2/${DIST_VER}.tgz
+
+RUN curl -o mbi.tgz ${DIST_URL} \ 
+  && tar -xvzf mbi.tgz \
+  && install -m755 ${DIST_VER}/bin/mongo* /usr/local/bin/ \ 
+  && rm -rf ${DIST_VER} mbi.tgz
 
 EXPOSE 3307
 
-RUN service rsyslog start
+# RUN service rsyslog start
 
-CMD ["mongosqld","--mongo-uri","${MONGODB_HOST}:${MONGODB_PORT}?connect=direct","--auth","--mongo-username","${MONGODB_USERNAME}","--mongo-password","${MONGODB_PASSWORD}","--addr","0.0.0.0:3307"]
+CMD ["mongosqld", "--config", "/mongobi/config.yaml"]
