@@ -1,0 +1,36 @@
+name: Push mongosqld
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - conf/mongosqld.dockerfile
+      - .github/workflows/mongosqld.push.yml
+  workflow_dispatch:
+
+jobs:
+  PushToDockerHub:
+    runs-on: ubuntu-latest
+    env:
+      REG_HOST: airkro
+      DOCKER_BUILDKIT: 1
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: airkro
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          file: conf/mongosqld.dockerfile
+          tags: ${{ env.REG_HOST }}/ci:mongosqld
+          push: true
