@@ -1,6 +1,48 @@
 version: "3.8"
 
 services:
+  latest:
+    image: ${REG_HOST}/node-lts:latest
+    build:
+      dockerfile: conf/node.dockerfile
+      context: .
+      target: latest
+  ssh:
+    image: ${REG_HOST}/node-lts:ssh
+    build:
+      dockerfile: conf/node.dockerfile
+      context: .
+      target: ssh
+  sentry:
+    image: ${REG_HOST}/node-lts:sentry
+    build:
+      dockerfile: conf/node.dockerfile
+      context: .
+      target: sentry
+  python3:
+    image: ${REG_HOST}/node-lts:python3
+    build:
+      dockerfile: conf/node.dockerfile
+      context: .
+      target: python3
+  cocoapods:
+    image: ${REG_HOST}/node-lts:cocoapods
+    build:
+      dockerfile: conf/node.dockerfile
+      context: .
+      target: cocoapods
+  mp-wechat-ci:
+    image: ${REG_HOST}/node-lts:mp-wechat-ci
+    build:
+      dockerfile: conf/node.dockerfile
+      context: .
+      target: mp-wechat-ci
+  mp-alipay-ci:
+    image: ${REG_HOST}/node-lts:mp-alipay-ci
+    build:
+      dockerfile: conf/node.dockerfile
+      context: .
+      target: mp-alipay-ci
   browser:
     image: ${REG_HOST}/node-lts:browser
     build:

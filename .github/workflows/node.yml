@@ -1,13 +1,12 @@
-name: Push Base
+name: Push Node
 
 on:
   push:
     branches:
       - master
     paths:
-      - conf/playwright.dockerfile
       - docker-compose.yml
-      - .github/workflows/playwright.push.yml
+      - .github/workflows/node.yml
   workflow_dispatch:
 
 jobs:

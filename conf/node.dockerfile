@@ -35,7 +35,7 @@ RUN apk add --no-cache --update ruby ruby-dev libffi-dev g++ make \
 RUN pod setup --allow-root
 
 FROM latest AS mp-wechat-ci
-RUN pnpm i -g miniprogram-ci
+RUN pnpm i -g miniprogram-ci miniprogram-ci-v1@npm:miniprogram-ci@1
 
 FROM python3 AS mp-alipay-ci
 RUN apk --no-cache --update add make
