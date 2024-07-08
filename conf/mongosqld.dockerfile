@@ -35,4 +35,4 @@ EXPOSE 3307
 
 # RUN service rsyslog start
 
-CMD ["mongosqld", "--config", "/mongobi/config.yaml"]
+ENTRYPOINT ["mongosqld", "--config", "/mongobi/config.yaml"]

@@ -43,11 +43,11 @@ docker pull airkro/node-lts
 | ![mp-alipay-ci][mp-alipay-ci] | mp-alipay-ci | tag:python3 / npm:minidev                                     |
 |           ![browser][browser] | browser      | git / zip / ssh / corepack / playwright / Noto Sans ...       |
 
-[latest]: https://flat.badgen.net/docker/size/airkro/node-lts/latest?label=
-[ssh]: https://flat.badgen.net/docker/size/airkro/node-lts/ssh?label=
-[sentry]: https://flat.badgen.net/docker/size/airkro/node-lts/sentry?label=
-[python3]: https://flat.badgen.net/docker/size/airkro/node-lts/python3?label=
-[cocoapods]: https://flat.badgen.net/docker/size/airkro/node-lts/cocoapods?label=
-[browser]: https://flat.badgen.net/docker/size/airkro/node-lts/browser?label=
-[mp-wechat-ci]: https://flat.badgen.net/docker/size/airkro/node-lts/mp-wechat-ci?label=
-[mp-alipay-ci]: https://flat.badgen.net/docker/size/airkro/node-lts/mp-alipay-ci?label=
+[latest]: https://img.shields.io/docker/image-size/airkro/node-lts/latest?label=&style=flat-square
+[ssh]: https://img.shields.io/docker/image-size/airkro/node-lts/ssh?label=&style=flat-square
+[sentry]: https://img.shields.io/docker/image-size/airkro/node-lts/sentry?label=&style=flat-square
+[python3]: https://img.shields.io/docker/image-size/airkro/node-lts/python3?label=&style=flat-square
+[cocoapods]: https://img.shields.io/docker/image-size/airkro/node-lts/cocoapods?label=&style=flat-square
+[browser]: https://img.shields.io/docker/image-size/airkro/node-lts/browser?label=&style=flat-square
+[mp-wechat-ci]: https://img.shields.io/docker/image-size/airkro/node-lts/mp-wechat-ci?label=&style=flat-square
+[mp-alipay-ci]: https://img.shields.io/docker/image-size/airkro/node-lts/mp-alipay-ci?label=&style=flat-square
