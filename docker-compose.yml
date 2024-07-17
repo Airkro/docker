@@ -49,3 +49,9 @@ services:
       dockerfile: conf/playwright.dockerfile
       context: .
       target: browser
+  electron-builder-wine:
+    image: ${REG_HOST}/node-lts:electron-builder-wine
+    build:
+      dockerfile: conf/electron-builder-wine.dockerfile
+      context: .
+      target: electron-builder-wine
