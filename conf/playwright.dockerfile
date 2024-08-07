@@ -33,9 +33,9 @@ EOF
 
 RUN <<EOF
 
-npm i -g @playwright/test
+npm i -g @playwright/test playwright-core
 npm cache clean --force
-pnpm i -g @playwright/test
+pnpm i -g @playwright/test playwright-core
 
 EOF
 

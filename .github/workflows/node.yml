@@ -5,6 +5,7 @@ on:
     branches:
       - master
     paths:
+      - conf/node.dockerfile
       - docker-compose.yml
       - .github/workflows/node.yml
   workflow_dispatch:
@@ -30,7 +31,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
       - name: Build
-        run: docker-compose build
+        run: docker compose build
 
       - name: Push
-        run: docker-compose push
+        run: docker compose push
