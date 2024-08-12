@@ -13,6 +13,12 @@ services:
       dockerfile: conf/node.dockerfile
       context: .
       target: ssh
+  github:
+    image: ${REG_HOST}/node-lts:github
+    build:
+      dockerfile: conf/node.dockerfile
+      context: .
+      target: github      
   sentry:
     image: ${REG_HOST}/node-lts:sentry
     build:

@@ -36,6 +36,7 @@ docker pull airkro/node-lts
 | ----------------------------: | :----------- | :------------------------------------------------------------ |
 |             ![latest][latest] | latest       | git / zip / curl / docker-cli / docker-cli-compose / corepack |
 |                   ![ssh][ssh] | ssh          | tag:latest / ssh                                              |
+|             ![github][github] | github       | tag:latest / github-cli                                       |
 |             ![sentry][sentry] | sentry       | tag:latest / npm:@sentry/cli                                  |
 |           ![python3][python3] | python3      | tag:latest / python3 / pip                                    |
 |       ![cocoapods][cocoapods] | cocoapods    | tag:latest / ruby / cocoapods                                 |
@@ -45,6 +46,7 @@ docker pull airkro/node-lts
 
 [latest]: https://img.shields.io/docker/image-size/airkro/node-lts/latest?label=&style=flat-square
 [ssh]: https://img.shields.io/docker/image-size/airkro/node-lts/ssh?label=&style=flat-square
+[github]: https://img.shields.io/docker/image-size/airkro/node-lts/github?label=&style=flat-square
 [sentry]: https://img.shields.io/docker/image-size/airkro/node-lts/sentry?label=&style=flat-square
 [python3]: https://img.shields.io/docker/image-size/airkro/node-lts/python3?label=&style=flat-square
 [cocoapods]: https://img.shields.io/docker/image-size/airkro/node-lts/cocoapods?label=&style=flat-square
