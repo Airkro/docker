@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1.5
 
-FROM mcr.microsoft.com/playwright AS browser
+FROM mcr.microsoft.com/playwright:v1.47.1-jammy AS browser
 
 ENV PNPM_HOME=/usr/local/bin
 
