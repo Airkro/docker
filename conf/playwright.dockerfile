@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1.5
 
-FROM mcr.microsoft.com/playwright:v1.47.1-jammy AS browser
+FROM mcr.microsoft.com/playwright:v1.48.0-jammy AS browser
 
 ENV PNPM_HOME=/usr/local/bin
 
@@ -33,9 +33,9 @@ EOF
 
 RUN <<EOF
 
-npm i -g @playwright/test playwright-core
+npm i -g @playwright/test@1.48.0 playwright-core@1.48.0
 npm cache clean --force
-pnpm i -g @playwright/test playwright-core
+pnpm i -g @playwright/test@1.48.0 playwright-core@1.48.0
 
 EOF
 
@@ -54,3 +54,11 @@ rm noto-sans.txt
 fc-cache -f -v
 
 EOF
+
+FROM browser AS sample
+
+RUN pnpm install --global @bring-it/sample
+
+WORKDIR /workspace
+
+CMD [ "bring-it", "sample" ]
