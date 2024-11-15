@@ -13,7 +13,6 @@ jobs:
   PushToDockerHub:
     runs-on: ubuntu-latest
     env:
-      REG_HOST: airkro
       DOCKER_BUILDKIT: 1
     steps:
       - name: Checkout
@@ -33,5 +32,5 @@ jobs:
         with:
           file: conf/ci.dockerfile
           target: qci_worker
-          tags: ${{ env.REG_HOST }}/ci:qci_worker
+          tags: airkro/ci:qci_worker
           push: true
