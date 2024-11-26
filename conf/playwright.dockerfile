@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1.5
 
-FROM mcr.microsoft.com/playwright:v1.48.0-jammy AS browser
+FROM mcr.microsoft.com/playwright:v1.49.0-jammy AS browser
 
 ENV PNPM_HOME=/usr/local/bin
 
@@ -33,9 +33,9 @@ EOF
 
 RUN <<EOF
 
-npm i -g @playwright/test@1.48.0 playwright-core@1.48.0
+npm i -g @playwright/test@1.49.0 playwright-core@1.49.0
 npm cache clean --force
-pnpm i -g @playwright/test@1.48.0 playwright-core@1.48.0
+pnpm i -g @playwright/test@1.49.0 playwright-core@1.49.0
 
 EOF
 
