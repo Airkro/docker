@@ -7,8 +7,8 @@ services:
       dockerfile: conf/playwright.dockerfile
       context: .
       target: browser
-  browser-1.48.0:
-    image: ${REG_HOST}/node-lts:browser-1.48.0
+  browser-1.49.0:
+    image: ${REG_HOST}/node-lts:browser-1.49.0
     build:
       dockerfile: conf/playwright.dockerfile
       context: .
