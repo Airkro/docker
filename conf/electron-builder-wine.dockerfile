@@ -14,8 +14,8 @@ npm cache clean --force
 corepack enable pnpm
 corepack enable yarn
 corepack enable npm
-corepack prepare npm@latest --activate
+corepack prepare npm@10.9.2 --activate
 corepack prepare yarn@1.22.22 --activate
-corepack prepare pnpm@latest --activate
+corepack prepare pnpm@9.15.4 --activate
 
 EOF
