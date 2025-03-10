@@ -10,11 +10,11 @@ ENV XDG_CACHE_HOME=/tmp/.cache
 ENV PNPM_HOME=/home/.share/pnpm
 ENV PATH="$PNPM_HOME:$PATH"
 
-RUN npm i -g npm@10 && npm i -g @antfu/ni && npm i -g corepack \ 
+RUN npm i -g npm@latest && npm i -g @antfu/ni && npm i -g corepack \ 
   && rm -rf /root/.npm/_cacache && npm cache clean --force \
-  && corepack enable npm  && corepack prepare npm@10.9.2 --activate \
+  && corepack enable npm  && corepack prepare npm@latest --activate \
   && corepack enable yarn && corepack prepare yarn@1.22.22 --activate \
-  && corepack enable pnpm && corepack prepare pnpm@9.15.4 --activate
+  && corepack enable pnpm && corepack prepare pnpm@latest --activate
 
 WORKDIR /mnt
 

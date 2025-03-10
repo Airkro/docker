@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1.5
 
-FROM mcr.microsoft.com/playwright:v1.50.1-noble AS browser
+FROM mcr.microsoft.com/playwright:v1.51.0-noble AS browser
 
 ENV PNPM_HOME=/usr/local/bin
 
@@ -25,17 +25,17 @@ npm cache clean --force
 corepack enable pnpm
 corepack enable yarn
 corepack enable npm
-corepack prepare npm@10.9.2 --activate
+corepack prepare npm@latest --activate
 corepack prepare yarn@1.22.22 --activate
-corepack prepare pnpm@9.15.4 --activate
+corepack prepare pnpm@latest --activate
 
 EOF
 
 RUN <<EOF
 
-npm i -g @playwright/test@1.50.1 playwright-core@1.50.1
+npm i -g @playwright/test@1.51.0 playwright-core@1.51.0
 npm cache clean --force
-pnpm i -g @playwright/test@1.50.1 playwright-core@1.50.1
+pnpm i -g @playwright/test@1.51.0 playwright-core@1.51.0
 
 EOF
 
