@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1.5
 
-FROM mcr.microsoft.com/playwright:v1.51.0-noble AS browser
+FROM mcr.microsoft.com/playwright:v1.52.0-noble AS browser
 
 ENV PNPM_HOME=/usr/local/bin
 
@@ -17,7 +17,7 @@ EOF
 
 RUN <<EOF
 
-npm i -g npm@10
+npm i -g npm@11
 npm i -g @antfu/ni
 npm i -g corepack
 rm -rf /root/.npm/_cacache
@@ -33,9 +33,9 @@ EOF
 
 RUN <<EOF
 
-npm i -g @playwright/test@1.51.0 playwright-core@1.51.0
+npm i -g @playwright/test@1.52.0 playwright-core@1.51.0
 npm cache clean --force
-pnpm i -g @playwright/test@1.51.0 playwright-core@1.51.0
+pnpm i -g @playwright/test@1.52.0 playwright-core@1.51.0
 
 EOF
 

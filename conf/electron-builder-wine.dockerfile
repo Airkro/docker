@@ -6,7 +6,7 @@ ENV PNPM_HOME=/usr/local/bin
 
 RUN <<EOF
 
-npm i -g npm@10
+npm i -g npm@11
 npm i -g @antfu/ni
 npm i -g corepack
 rm -rf /root/.npm/_cacache
