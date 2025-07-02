@@ -1,6 +1,8 @@
 # syntax=docker/dockerfile:1.5
 
-FROM mcr.microsoft.com/playwright:noble AS browser
+ARG PLAYWRIGHT_VERSION=1.53.2
+
+FROM mcr.microsoft.com/playwright:v${PLAYWRIGHT_VERSION}-noble AS browser
 
 ENV PNPM_HOME=/usr/local/bin
 
@@ -34,9 +36,7 @@ EOF
 
 RUN <<EOF
 
-npm i -g @playwright/test playwright-core
-npm cache clean --force
-pnpm i -g @playwright/test playwright-core
+pnpm i -g @playwright/test@${PLAYWRIGHT_VERSION} playwright-core@${PLAYWRIGHT_VERSION}
 
 EOF
 
