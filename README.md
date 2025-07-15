@@ -39,7 +39,8 @@ docker pull airkro/node-lts
 |             ![github][github] | github       | tag:latest / github-cli                                       |
 |             ![sentry][sentry] | sentry       | tag:latest / npm:@sentry/cli                                  |
 |           ![python3][python3] | python3      | tag:latest / python3 / pip                                    |
-|       ![cocoapods][cocoapods] | cocoapods    | tag:latest / ruby / cocoapods                                 |
+|                 ![rust][rust] | rust         | tag:latest / build-base / rust / cargo                        |
+|                 ![wasm][wasm] | wasm         | tag:rust / wasm-pack/ wasm-bindgen / binaryen                 |
 | ![mp-wechat-ci][mp-wechat-ci] | mp-wechat-ci | tag:latest / npm:miniprogram-ci                               |
 | ![mp-alipay-ci][mp-alipay-ci] | mp-alipay-ci | tag:python3 / npm:minidev                                     |
 |           ![browser][browser] | browser      | git / zip / ssh / corepack / playwright / Noto Sans ...       |
@@ -49,7 +50,8 @@ docker pull airkro/node-lts
 [github]: https://img.shields.io/docker/image-size/airkro/node-lts/github?label=&style=flat-square
 [sentry]: https://img.shields.io/docker/image-size/airkro/node-lts/sentry?label=&style=flat-square
 [python3]: https://img.shields.io/docker/image-size/airkro/node-lts/python3?label=&style=flat-square
-[cocoapods]: https://img.shields.io/docker/image-size/airkro/node-lts/cocoapods?label=&style=flat-square
+[rust]: https://img.shields.io/docker/image-size/airkro/node-lts/rust?label=&style=flat-square
+[wasm]: https://img.shields.io/docker/image-size/airkro/node-lts/wasm?label=&style=flat-square
 [browser]: https://img.shields.io/docker/image-size/airkro/node-lts/browser?label=&style=flat-square
 [mp-wechat-ci]: https://img.shields.io/docker/image-size/airkro/node-lts/mp-wechat-ci?label=&style=flat-square
 [mp-alipay-ci]: https://img.shields.io/docker/image-size/airkro/node-lts/mp-alipay-ci?label=&style=flat-square

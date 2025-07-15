@@ -37,12 +37,18 @@ services:
       dockerfile: conf/node.dockerfile
       context: .
       target: python3
-  cocoapods:
-    image: ${REG_HOST}/node-lts:cocoapods
+  rust:
+    image: ${REG_HOST}/node-lts:rust
     build:
       dockerfile: conf/node.dockerfile
       context: .
-      target: cocoapods
+      target: rust
+  wasm:
+    image: ${REG_HOST}/node-lts:wasm
+    build:
+      dockerfile: conf/node.dockerfile
+      context: .
+      target: wasm
   mp-wechat-ci:
     image: ${REG_HOST}/node-lts:mp-wechat-ci
     build:

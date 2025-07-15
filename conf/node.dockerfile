@@ -30,12 +30,14 @@ RUN pnpm i -g @sentry/cli
 FROM latest AS python3
 RUN apk --no-cache --update add python3 py3-pip
 
-FROM latest AS cocoapods
-RUN apk add --no-cache --update ruby ruby-dev libffi-dev g++ make \
-  && gem install cocoapods coding-push --no-document \
-  && rm -rf /usr/lib/ruby/gems/*/cache/* \
-  && apk del ruby-dev libffi-dev g++ make
-RUN pod setup --allow-root
+FROM latest AS rust
+RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories
+RUN apk update
+RUN apk add --no-cache --update build-base
+RUN apk add --no-cache --update rust cargo
+
+FROM latest AS wasm
+RUN apk add --no-cache wasm-pack wasm-bindgen binaryen
 
 FROM latest AS mp-wechat-ci
 RUN pnpm i -g miniprogram-ci
