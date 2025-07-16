@@ -1,6 +1,5 @@
 FROM node:lts-alpine AS latest
 RUN apk --no-cache --update add git zip curl
-RUN apk --no-cache --update add docker-cli docker-cli-compose
 
 RUN mkdir -p /home/.share /home/.state /home/.share/pnpm /tmp/.cache /mnt
 
@@ -17,6 +16,9 @@ RUN npm i -g npm@latest && npm i -g @antfu/ni && npm i -g corepack \
   && corepack enable pnpm && corepack prepare pnpm@latest --activate
 
 WORKDIR /mnt
+
+FROM latest AS docker
+RUN apk --no-cache --update add docker-cli docker-cli-compose
 
 FROM latest AS ssh
 RUN apk --no-cache --update add openssh

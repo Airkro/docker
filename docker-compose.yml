@@ -13,6 +13,12 @@ services:
       dockerfile: conf/node.dockerfile
       context: .
       target: latest
+  docker:
+    image: ${REG_HOST}/node-lts:docker
+    build:
+      dockerfile: conf/node.dockerfile
+      context: .
+      target: docker      
   ssh:
     image: ${REG_HOST}/node-lts:ssh
     build:
