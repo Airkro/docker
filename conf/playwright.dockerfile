@@ -31,6 +31,7 @@ corepack enable npm
 corepack prepare npm@latest --activate
 corepack prepare yarn@1.22.22 --activate
 corepack prepare pnpm@latest --activate
+pnpm config set storeDir /home/.share/pnpm/store 
 
 EOF
 
