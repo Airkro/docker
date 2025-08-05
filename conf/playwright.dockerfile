@@ -1,6 +1,6 @@
-# syntax=docker/dockerfile:1.5
+# syntax=docker/dockerfile:1.6
 
-ARG PLAYWRIGHT_VERSION=1.53.2
+ARG PLAYWRIGHT_VERSION=1.54.2
 
 FROM mcr.microsoft.com/playwright:v${PLAYWRIGHT_VERSION}-noble AS browser
 
@@ -31,6 +31,7 @@ corepack enable npm
 corepack prepare npm@latest --activate
 corepack prepare yarn@1.22.22 --activate
 corepack prepare pnpm@latest --activate
+pnpm config set storeDir /home/.share/pnpm/store 
 
 EOF
 
