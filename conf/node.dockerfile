@@ -36,7 +36,7 @@ RUN apk add --no-cache --update build-base
 RUN apk add --no-cache --update rust cargo
 
 FROM latest AS wasm
-RUN apk add --no-cache binaryen wasm-pack wasm-bindgen
+RUN apk add --no-cache binaryen wasm-pack wasm-bindgen brotli
 
 FROM latest AS mp-wechat-ci
 RUN pnpm i -g miniprogram-ci
