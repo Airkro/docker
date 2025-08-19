@@ -19,7 +19,6 @@ EOF
 
 RUN <<EOF
 
-node -v
 npm i -g npm@11
 npm i -g @antfu/ni
 npm i -g corepack
@@ -35,11 +34,7 @@ pnpm config set storeDir /home/.share/pnpm/store
 
 EOF
 
-RUN <<EOF
-
-pnpm i -g @playwright/test@${PLAYWRIGHT_VERSION} playwright-core@${PLAYWRIGHT_VERSION}
-
-EOF
+RUN pnpm i -g @playwright/test@${PLAYWRIGHT_VERSION} playwright-core@${PLAYWRIGHT_VERSION}
 
 RUN <<EOF
 
