@@ -32,19 +32,19 @@ docker pull airkro/node-lts
 
 ### Size of airkro/node-lts:tag
 
-|                          Size | Tag          | Features                                                |
-| ----------------------------: | :----------- | :------------------------------------------------------ |
-|             ![latest][latest] | latest       | git / zip / curl / corepack                             |
-|             ![docker][docker] | docker       | tag:latest / docker-cli / docker-cli-compose            |
-|                   ![ssh][ssh] | ssh          | tag:latest / ssh                                        |
-|             ![github][github] | github       | tag:latest / github-cli                                 |
-|             ![sentry][sentry] | sentry       | tag:latest / npm:@sentry/cli                            |
-|           ![python3][python3] | python3      | tag:latest / python3 / pip                              |
-|                 ![rust][rust] | rust         | tag:latest / build-base / rust / cargo                  |
-|                 ![wasm][wasm] | wasm         | tag:rust / wasm-pack/ wasm-bindgen / binaryen           |
-| ![mp-wechat-ci][mp-wechat-ci] | mp-wechat-ci | tag:latest / npm:miniprogram-ci                         |
-| ![mp-alipay-ci][mp-alipay-ci] | mp-alipay-ci | tag:python3 / npm:minidev                               |
-|           ![browser][browser] | browser      | git / zip / ssh / corepack / playwright / Noto Sans ... |
+|                          Size | Tag          | Features                                                                  |
+| ----------------------------: | :----------- | :------------------------------------------------------------------------ |
+|             ![latest][latest] | latest       | node:lts-alpine / git / zip / curl / corepack                             |
+|             ![docker][docker] | docker       | tag:latest / docker-cli / docker-cli-compose                              |
+|                   ![ssh][ssh] | ssh          | tag:latest / ssh                                                          |
+|             ![github][github] | github       | tag:latest / github-cli                                                   |
+|             ![sentry][sentry] | sentry       | tag:latest / npm:@sentry/cli                                              |
+|           ![python3][python3] | python3      | tag:latest / python3 / pip                                                |
+|                 ![rust][rust] | rust         | tag:latest / build-base / rust / cargo                                    |
+|                 ![wasm][wasm] | wasm         | tag:rust / wasm-pack/ wasm-bindgen / binaryen                             |
+| ![mp-wechat-ci][mp-wechat-ci] | mp-wechat-ci | tag:latest / npm:miniprogram-ci                                           |
+| ![mp-alipay-ci][mp-alipay-ci] | mp-alipay-ci | tag:python3 / npm:minidev                                                 |
+|           ![browser][browser] | browser      | mcr.microsoft.com/playwright / git / zip / ssh / corepack / Noto Sans ... |
 
 [latest]: https://img.shields.io/docker/image-size/airkro/node-lts/latest?label=&style=flat-square
 [docker]: https://img.shields.io/docker/image-size/airkro/node-lts/docker?label=&style=flat-square
