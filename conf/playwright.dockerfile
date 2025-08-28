@@ -30,11 +30,13 @@ corepack enable npm
 corepack prepare npm@latest --activate
 corepack prepare yarn@1.22.22 --activate
 corepack prepare pnpm@latest --activate
-pnpm config set storeDir /home/.share/pnpm/store 
+pnpm config set storeDir /home/.share/pnpm/store --global
 
 EOF
 
+RUN pnpm config set storeDir /home/.share/pnpm/store1
 RUN pnpm i -g @playwright/test@${PLAYWRIGHT_VERSION} playwright-core@${PLAYWRIGHT_VERSION}
+RUN pnpm config set storeDir /home/.share/pnpm/store
 
 RUN <<EOF
 
@@ -54,7 +56,9 @@ EOF
 
 FROM browser AS sample
 
-RUN pnpm install --global @bring-it/sample
+RUN pnpm config set storeDir /home/.share/pnpm/store1
+RUN pnpm i -g @bring-it/sample
+RUN pnpm config set storeDir /home/.share/pnpm/store
 
 WORKDIR /workspace
 

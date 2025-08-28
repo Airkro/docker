@@ -12,7 +12,7 @@ RUN npm i -g npm@latest && npm i -g @antfu/ni && npm i -g corepack \
   && corepack enable npm  && corepack prepare npm@latest --activate \
   && corepack enable yarn && corepack prepare yarn@1.22.22 --activate \
   && corepack enable pnpm && corepack prepare pnpm@latest --activate \
-  && pnpm config set storeDir /home/.share/pnpm/store 
+  && pnpm config set storeDir /home/.share/pnpm/store --global
 
 WORKDIR /workspace
 
@@ -26,7 +26,9 @@ FROM latest AS github
 RUN apk --no-cache --update add github-cli
 
 FROM latest AS sentry
+RUN pnpm config set storeDir /home/.share/pnpm/store1 --global
 RUN pnpm i -g @sentry/cli
+RUN pnpm config set storeDir /home/.share/pnpm/store --global
 
 FROM latest AS python3
 RUN apk --no-cache --update add python3 py3-pip
@@ -39,8 +41,12 @@ FROM rust AS wasm
 RUN apk add --no-cache binaryen wasm-pack wasm-bindgen brotli
 
 FROM latest AS mp-wechat-ci
+RUN pnpm config set storeDir /home/.share/pnpm/store1 --global
 RUN pnpm i -g miniprogram-ci
+RUN pnpm config set storeDir /home/.share/pnpm/store --global
 
 FROM python3 AS mp-alipay-ci
 RUN apk --no-cache --update add make
+RUN pnpm config set storeDir /home/.share/pnpm/store1 --global
 RUN pnpm i -g minidev
+RUN pnpm config set storeDir /home/.share/pnpm/store --global
