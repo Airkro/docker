@@ -79,3 +79,9 @@ services:
       dockerfile: conf/electron-builder-wine.dockerfile
       context: .
       target: electron-builder-wine
+  pocketbase:
+    image: ${REG_HOST}/pocketbase:latest
+    build:
+      dockerfile: conf/other.dockerfile
+      context: .
+      target: pocketbase
