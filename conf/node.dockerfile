@@ -31,7 +31,7 @@ RUN pnpm i -g @sentry/cli
 RUN pnpm config set storeDir /home/.share/pnpm/store --global
 
 FROM latest AS python3
-RUN apk --no-cache --update add python3 py3-pip
+RUN apk --no-cache --update add python3 py3-pip uv
 
 FROM latest AS rust
 RUN apk add --no-cache --update build-base

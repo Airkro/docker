@@ -39,7 +39,7 @@ docker pull airkro/node-lts
 |                   ![ssh][ssh] | ssh          | tag:latest / ssh                                                          |
 |             ![github][github] | github       | tag:latest / github-cli                                                   |
 |             ![sentry][sentry] | sentry       | tag:latest / npm:@sentry/cli                                              |
-|           ![python3][python3] | python3      | tag:latest / python3 / pip                                                |
+|           ![python3][python3] | python3      | tag:latest / python3 / pip / uv                                           |
 |                 ![rust][rust] | rust         | tag:latest / build-base / rust / cargo                                    |
 |                 ![wasm][wasm] | wasm         | tag:rust / wasm-pack/ wasm-bindgen / binaryen                             |
 | ![mp-wechat-ci][mp-wechat-ci] | mp-wechat-ci | tag:latest / npm:miniprogram-ci                                           |
