@@ -40,16 +40,19 @@ RUN pnpm config set storeDir /home/.share/pnpm/store
 
 RUN <<EOF
 
-cat <<EOT > noto-sans.txt
+cat <<EOT > noto-sc.txt
 https://github.com/notofonts/noto-cjk/raw/main/Sans/Variable/OTF/Mono/NotoSansMonoCJKsc-VF.otf
+https://github.com/notofonts/noto-cjk/raw/main/Serif/Variable/OTF/NotoSerifCJKsc-VF.otf
 https://github.com/notofonts/noto-cjk/raw/main/Sans/Variable/OTF/NotoSansCJKsc-VF.otf
-https://github.com/notofonts/notofonts.github.io/raw/main/fonts/NotoSans/full/variable-ttf/NotoSans-Italic[wdth,wght].ttf
-https://github.com/notofonts/notofonts.github.io/raw/main/fonts/NotoSans/full/variable-ttf/NotoSans[wdth,wght].ttf
-https://github.com/notofonts/notofonts.github.io/raw/main/fonts/NotoSansMono/unhinted/variable-ttf/NotoSansMono[wdth,wght].ttf
+https://github.com/notofonts/notofonts.github.io/raw/main/fonts/NotoSans/unhinted/variable-ttf/NotoSans-Italic%5Bwdth,wght%5D.ttf
+https://github.com/notofonts/notofonts.github.io/raw/main/fonts/NotoSerif/unhinted/variable-ttf/NotoSerif-Italic%5Bwdth,wght%5D.ttf
+https://github.com/notofonts/notofonts.github.io/raw/main/fonts/NotoSans/unhinted/variable-ttf/NotoSans%5Bwdth,wght%5D.ttf
+https://github.com/notofonts/notofonts.github.io/raw/main/fonts/NotoSerif/unhinted/variable-ttf/NotoSerif%5Bwdth,wght%5D.ttf
+https://github.com/notofonts/notofonts.github.io/raw/main/fonts/NotoSansMono/unhinted/variable-ttf/NotoSansMono%5Bwdth,wght%5D.ttf
 EOT
 
-wget -i noto-sans.txt -P /usr/local/share/fonts/
-rm noto-sans.txt
+wget -i noto-sc.txt -P /usr/local/share/fonts/
+rm noto-sc.txt
 fc-cache -f -v
 
 EOF
