@@ -1,14 +1,13 @@
-name: Push Node
+name: Push Playwright
 
 on:
   push:
     branches:
       - master
     paths:
-      - .github/workflows/node.yml
-      - conf/node.dockerfile
-      - conf/electron-builder-wine.dockerfile
-      - node.docker-compose.yml
+      - .github/workflows/playwright.yml
+      - conf/playwright.dockerfile
+      - playwright.docker-compose.yml
   workflow_dispatch:
 
 jobs:
@@ -32,7 +31,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
       - name: Build
-        run: docker compose -f node.docker-compose.yml build
+        run: docker compose -f playwright.docker-compose.yml build
 
       - name: Push
-        run: docker compose -f node.docker-compose.yml push
+        run: docker compose -f playwright.docker-compose.yml push

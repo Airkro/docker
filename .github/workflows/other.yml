@@ -1,14 +1,13 @@
-name: Push Node
+name: Push Other
 
 on:
   push:
     branches:
       - master
     paths:
-      - .github/workflows/node.yml
-      - conf/node.dockerfile
-      - conf/electron-builder-wine.dockerfile
-      - node.docker-compose.yml
+      - .github/workflows/other.yml
+      - conf/other.dockerfile
+      - other.docker-compose.yml
   workflow_dispatch:
 
 jobs:
@@ -32,7 +31,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
       - name: Build
-        run: docker compose -f node.docker-compose.yml build
+        run: docker compose -f other.docker-compose.yml build
 
       - name: Push
-        run: docker compose -f node.docker-compose.yml push
+        run: docker compose -f other.docker-compose.yml push

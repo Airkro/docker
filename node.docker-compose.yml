@@ -1,12 +1,6 @@
 version: "3.8"
 
 services:
-  browser:
-    image: ${REG_HOST}/node-lts:browser
-    build:
-      dockerfile: conf/playwright.dockerfile
-      context: .
-      target: browser
   latest:
     image: ${REG_HOST}/node-lts:latest
     build:
@@ -67,21 +61,9 @@ services:
       dockerfile: conf/node.dockerfile
       context: .
       target: mp-alipay-ci
-  sample:
-    image: ${REG_HOST}/node-lts:sample
-    build:
-      dockerfile: conf/playwright.dockerfile
-      context: .
-      target: sample      
   electron-builder-wine:
     image: ${REG_HOST}/node-lts:electron-builder-wine
     build:
       dockerfile: conf/electron-builder-wine.dockerfile
       context: .
       target: electron-builder-wine
-  pocketbase:
-    image: ${REG_HOST}/pocketbase:latest
-    build:
-      dockerfile: conf/other.dockerfile
-      context: .
-      target: pocketbase
