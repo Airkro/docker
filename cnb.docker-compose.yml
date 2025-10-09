@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   cnb-webide:
     image: ${REG_HOST}/cnb-webide:node

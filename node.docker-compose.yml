@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   latest:
     image: ${REG_HOST}/node-lts:latest

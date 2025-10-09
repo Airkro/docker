@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   browser:
     image: ${REG_HOST}/node-lts:browser
