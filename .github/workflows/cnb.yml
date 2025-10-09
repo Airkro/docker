@@ -1,4 +1,4 @@
-name: Push Other
+name: Push CNB
 
 on:
   push:

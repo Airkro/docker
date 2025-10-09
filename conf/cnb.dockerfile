@@ -22,7 +22,7 @@ code-server --install-extension dbaeumer.vscode-eslint
 code-server --install-extension eamodio.gitlens
 code-server --install-extension EditorConfig.EditorConfig
 code-server --install-extension esbenp.prettier-vscode
-code-server --install-extension MS-CEINTL.vscode-language-pack-zh-hans
+code-server --install-extension pflannery.vscode-versionlens
 code-server --install-extension PKief.material-icon-theme
 code-server --install-extension redhat.vscode-yaml
 code-server --install-extension stylelint.vscode-stylelint
