@@ -19,7 +19,7 @@ EOF
 
 RUN <<EOF
 
-npm i -g npm@11
+npm i -g npm@npm@latest
 npm i -g @antfu/ni
 npm i -g corepack
 rm -rf /root/.npm/_cacache

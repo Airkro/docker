@@ -40,13 +40,13 @@ RUN apk add --no-cache --update rust cargo
 FROM rust AS wasm
 RUN apk add --no-cache binaryen wasm-pack wasm-bindgen brotli
 
-FROM latest AS mp-wechat-ci
-RUN pnpm config set storeDir /home/.share/pnpm/store1 --global
-RUN pnpm i -g miniprogram-ci
-RUN pnpm config set storeDir /home/.share/pnpm/store --global
-
 FROM python3 AS mp-alipay-ci
 RUN apk --no-cache --update add make
 RUN pnpm config set storeDir /home/.share/pnpm/store1 --global
 RUN pnpm i -g minidev
+RUN pnpm config set storeDir /home/.share/pnpm/store --global
+
+FROM latest AS mp-wechat-ci
+RUN pnpm config set storeDir /home/.share/pnpm/store1 --global
+RUN pnpm i -g miniprogram-ci
 RUN pnpm config set storeDir /home/.share/pnpm/store --global
