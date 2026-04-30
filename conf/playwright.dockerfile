@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1.6
 
-ARG PLAYWRIGHT_VERSION=1.56.0
+ARG PLAYWRIGHT_VERSION=1.59.1
 
 FROM mcr.microsoft.com/playwright:v${PLAYWRIGHT_VERSION}-noble AS browser
 
