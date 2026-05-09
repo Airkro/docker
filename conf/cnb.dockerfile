@@ -43,7 +43,7 @@ npm i -g npm@latest && npm i -g @antfu/ni && npm i -g corepack
 rm -rf /root/.npm/_cacache && npm cache clean --force 
 corepack enable npm  && corepack prepare npm@latest --activate 
 corepack enable yarn && corepack prepare yarn@1.22.22 --activate 
-corepack enable pnpm && corepack prepare pnpm@latest --activate 
+corepack enable pnpm && corepack prepare pnpm@10.33.4 --activate 
 pnpm config set storeDir /home/.share/pnpm/store --global
 
 EOF

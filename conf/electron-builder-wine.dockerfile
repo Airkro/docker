@@ -2,7 +2,9 @@
 
 FROM electronuserland/builder:wine AS electron-builder-wine
 
-ENV PNPM_HOME=/usr/local/bin
+ENV XDG_DATA_HOME=/home/.share
+ENV PNPM_HOME=/home/.share/pnpm
+ENV PATH="$PNPM_HOME:$PATH"
 
 RUN <<EOF
 
@@ -16,7 +18,7 @@ corepack enable yarn
 corepack enable npm
 corepack prepare npm@latest --activate
 corepack prepare yarn@1.22.22 --activate
-corepack prepare pnpm@latest --activate
+corepack prepare pnpm@10.33.4 --activate
 pnpm config set storeDir /home/.share/pnpm/store 
 
 EOF
