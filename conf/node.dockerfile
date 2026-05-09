@@ -1,5 +1,5 @@
 FROM node:lts-alpine AS latest
-RUN apk --no-cache --update add git zip curl
+RUN apk --no-cache --update add git zip curl wget jq ripgrep
 
 RUN mkdir -p /home/.share/pnpm /mnt
 
