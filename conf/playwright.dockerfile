@@ -1,6 +1,4 @@
-# syntax=docker/dockerfile:1.6
-
-ARG PLAYWRIGHT_VERSION=1.59.1
+ARG PLAYWRIGHT_VERSION=1.61.1
 
 FROM mcr.microsoft.com/playwright:v${PLAYWRIGHT_VERSION}-noble AS browser
 
@@ -21,7 +19,7 @@ EOF
 
 RUN <<EOF
 
-npm i -g npm@npm@latest
+npm i -g npm@npm@11.18.0
 npm i -g @antfu/ni
 npm i -g corepack
 rm -rf /root/.npm/_cacache
@@ -29,16 +27,15 @@ npm cache clean --force
 corepack enable pnpm
 corepack enable yarn
 corepack enable npm
-corepack prepare npm@latest --activate
+corepack prepare npm@11.18.0 --activate
 corepack prepare yarn@1.22.22 --activate
-corepack prepare pnpm@10.33.4 --activate
-pnpm config set storeDir /home/.share/pnpm/store --global
+corepack prepare pnpm@10.34.4 --activate
 
 EOF
 
-RUN pnpm config set storeDir /home/.share/pnpm/store1
-RUN pnpm i -g @playwright/test@${PLAYWRIGHT_VERSION} playwright-core@${PLAYWRIGHT_VERSION}
-RUN pnpm config set storeDir /home/.share/pnpm/store
+RUN pnpm config set storeDir /home/.share/pnpm/store --global
+
+RUN pnpm i -g @playwright/test@${PLAYWRIGHT_VERSION} playwright-core@${PLAYWRIGHT_VERSION} playwright@${PLAYWRIGHT_VERSION}
 
 RUN <<EOF
 
@@ -61,9 +58,7 @@ EOF
 
 FROM browser AS sample
 
-RUN pnpm config set storeDir /home/.share/pnpm/store1
 RUN pnpm i -g @bring-it/sample
-RUN pnpm config set storeDir /home/.share/pnpm/store
 
 WORKDIR /workspace
 

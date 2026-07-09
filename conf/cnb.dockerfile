@@ -39,11 +39,11 @@ COPY cnb/settings.json /root/.local/share/code-server/Machine/settings.json
 
 RUN <<EOF
 
-npm i -g npm@latest && npm i -g @antfu/ni && npm i -g corepack 
+npm i -g npm@11.18.0 && npm i -g @antfu/ni && npm i -g corepack 
 rm -rf /root/.npm/_cacache && npm cache clean --force 
-corepack enable npm  && corepack prepare npm@latest --activate 
+corepack enable npm  && corepack prepare npm@11.18.0 --activate 
 corepack enable yarn && corepack prepare yarn@1.22.22 --activate 
-corepack enable pnpm && corepack prepare pnpm@10.33.4 --activate 
+corepack enable pnpm && corepack prepare pnpm@10.34.4 --activate 
 pnpm config set storeDir /home/.share/pnpm/store --global
 
 EOF
