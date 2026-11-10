@@ -1,4 +1,4 @@
-ARG PLAYWRIGHT_VERSION=1.61.1
+ARG PLAYWRIGHT_VERSION=1.65.0
 
 FROM mcr.microsoft.com/playwright:v${PLAYWRIGHT_VERSION}-noble AS browser
 
@@ -63,3 +63,35 @@ RUN pnpm i -g @bring-it/sample
 WORKDIR /workspace
 
 CMD [ "bring-it", "sample" ]
+
+FROM browser AS browser-wasm
+
+ARG WASM_PACK_VERSION=v0.15.1
+ARG WASM_BINDGEN_VERSION=0.2.130
+
+RUN <<EOF
+set -eu
+
+case "$(dpkg --print-architecture)" in
+  amd64) wasm_arch=x86_64 ;;
+  arm64) wasm_arch=aarch64 ;;
+  *) echo "unsupported architecture" >&2; exit 1 ;;
+esac
+
+apt-get update
+apt-get install --no-install-recommends --fix-missing -y rustc cargo binaryen brotli
+apt-get autoclean
+apt-get clean
+apt-get autoremove
+rm -rf /var/lib/apt/lists/*
+
+wasm_tmp=$(mktemp -d)
+wget -qO- "https://github.com/wasm-bindgen/wasm-pack/releases/download/${WASM_PACK_VERSION}/wasm-pack-${WASM_PACK_VERSION}-${wasm_arch}-unknown-linux-musl.tar.gz" | tar -xz -C "$wasm_tmp"
+wget -qO- "https://github.com/wasm-bindgen/wasm-bindgen/releases/download/${WASM_BINDGEN_VERSION}/wasm-bindgen-${WASM_BINDGEN_VERSION}-${wasm_arch}-unknown-linux-musl.tar.gz" | tar -xz -C "$wasm_tmp"
+find "$wasm_tmp" -type f -name wasm-pack -exec install -m 755 {} /usr/local/bin/ \;
+find "$wasm_tmp" -type f -name wasm-bindgen -exec install -m 755 {} /usr/local/bin/ \;
+rm -rf "$wasm_tmp"
+wasm-pack --version
+wasm-bindgen --version
+
+EOF
